@@ -1,4 +1,4 @@
-# Gradle files
+out# Gradle files
 .gradle/
 build/
 
@@ -32,3 +32,358 @@ google-services.json
 
 # Android Profiling
 *.hprof
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hydra Dragon Ghost Shop | Super App</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#8b5cf6;
+    --secondary:#0ea5e9;
+    --bg:#020617;
+    --glass:rgba(255,255,255,0.08);
+    --card:rgba(255,255,255,0.12);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo',sans-serif;
+}
+
+body{
+    background:var(--bg);
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+    position:sticky;
+    top:0;
+    background:rgba(15,23,42,0.85);
+    backdrop-filter:blur(14px);
+    padding:20px;
+    border-bottom:1px solid var(--glass);
+    z-index:1000;
+}
+
+.nav{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo img{
+    width:45px;
+    height:45px;
+    border-radius:10px;
+}
+
+.logo span{
+    font-size:1.6rem;
+    font-weight:bold;
+    background:linear-gradient(to left,var(--primary),var(--secondary));
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.search-box{
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    padding:15px 50px 15px 20px;
+    border-radius:12px;
+    border:1px solid transparent;
+    background:var(--glass);
+    color:white;
+    font-size:1rem;
+    outline:none;
+    transition:.3s;
+}
+
+.search-box input:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 12px rgba(139,92,246,.3);
+}
+
+/* SECTIONS */
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+}
+
+.section-title{
+    margin:25px 0 10px;
+    font-size:1.2rem;
+}
+
+.scroll-row{
+    display:flex;
+    gap:18px;
+    overflow-x:auto;
+    padding-bottom:15px;
+}
+
+.card{
+    min-width:170px;
+    background:var(--card);
+    border-radius:15px;
+    padding:12px;
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,.2);
+}
+
+.card img{
+    width:100%;
+    aspect-ratio:1;
+    border-radius:12px;
+    object-fit:cover;
+    margin-bottom:8px;
+}
+
+.card h4{
+    font-size:.9rem;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.card p{
+    font-size:.75rem;
+    color:#94a3b8;
+}
+
+/* AI ORB */
+
+#aiBtn{
+    position:fixed;
+    bottom:30px;
+    left:30px;
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    cursor:pointer;
+    box-shadow:0 0 20px var(--primary);
+}
+
+/* CHAT */
+
+#chat{
+    position:fixed;
+    bottom:110px;
+    left:30px;
+    width:350px;
+    height:450px;
+    background:#1e293b;
+    border-radius:20px;
+    display:none;
+    flex-direction:column;
+    overflow:hidden;
+}
+
+.chat-header{
+    background:var(--primary);
+    padding:15px;
+    font-weight:bold;
+}
+
+.chat-body{
+    flex:1;
+    padding:15px;
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.msg{
+    padding:8px 12px;
+    border-radius:10px;
+    max-width:80%;
+    font-size:.9rem;
+}
+
+.bot{
+    background:var(--glass);
+    align-self:flex-start;
+}
+
+.user{
+    background:var(--primary);
+    align-self:flex-end;
+}
+
+.chat-input{
+    padding:10px;
+    display:flex;
+    gap:10px;
+    border-top:1px solid var(--glass);
+}
+
+.chat-input input{
+    flex:1;
+    background:none;
+    border:none;
+    color:white;
+    outline:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+
+<div class="logo">
+<img src="https://via.placeholder.com/100/8b5cf6/ffffff?text=H">
+<span>HYDRA DRAGON</span>
+</div>
+
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="ابحث عن كتب، تطبيقات، فيديوهات..." />
+</div>
+
+</div>
+</header>
+
+<main class="container">
+
+<h3 class="section-title">📚 الكتب</h3>
+<div class="scroll-row" id="booksRow"></div>
+
+<h3 class="section-title">🔥 المنصات</h3>
+<div class="scroll-row" id="platformRow"></div>
+
+</main>
+
+<div id="aiBtn">🐉</div>
+
+<div id="chat">
+<div class="chat-header">Hydra AI</div>
+<div class="chat-body" id="chatBody">
+<div class="msg bot">مرحباً بك! اكتب ما تريد البحث عنه.</div>
+</div>
+<div class="chat-input">
+<input type="text" id="chatInput" placeholder="اسأل هيدرا..." />
+</div>
+</div>
+
+<script>
+
+const searchInput = document.getElementById("searchInput");
+const booksRow = document.getElementById("booksRow");
+const platformRow = document.getElementById("platformRow");
+
+searchInput.addEventListener("keypress", e=>{
+    if(e.key==="Enter"){
+        const query = e.target.value.trim();
+        if(!query) return;
+        searchBooks(query);
+        loadPlatforms(query);
+    }
+});
+
+async function searchBooks(query){
+    booksRow.innerHTML="جاري البحث...";
+    try{
+        const res = await fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=8`);
+        const data = await res.json();
+        booksRow.innerHTML="";
+        if(!data.items){ booksRow.innerHTML="لا توجد نتائج"; return; }
+
+        data.items.forEach(book=>{
+            const info = book.volumeInfo;
+            const img = info.imageLinks?.thumbnail || "https://via.placeholder.com/150";
+            booksRow.innerHTML += `
+            <a href="${info.previewLink}" target="_blank" class="card">
+                <img src="${img}">
+                <h4>${info.title}</h4>
+                <p>${info.authors?.[0] || "غير معروف"}</p>
+            </a>`;
+        });
+    }catch{
+        booksRow.innerHTML="حدث خطأ";
+    }
+}
+
+function loadPlatforms(query){
+    platformRow.innerHTML="";
+    const platforms = [
+        {name:"YouTube",icon:"https://cdn-icons-png.flaticon.com/512/1384/1384060.png",
+        url:`https://www.youtube.com/results?search_query=${query}`},
+        {name:"TikTok",icon:"https://cdn-icons-png.flaticon.com/512/3046/3046124.png",
+        url:`https://www.tiktok.com/search?q=${query}`},
+        {name:"Play Store",icon:"https://cdn-icons-png.flaticon.com/512/2991/2991148.png",
+        url:`https://play.google.com/store/search?q=${query}&c=apps`}
+    ];
+
+    platforms.forEach(p=>{
+        platformRow.innerHTML += `
+        <a href="${p.url}" target="_blank" class="card">
+            <img src="${p.icon}">
+            <h4>${p.name}</h4>
+            <p>عرض النتائج</p>
+        </a>`;
+    });
+}
+
+/* AI CHAT */
+
+const aiBtn = document.getElementById("aiBtn");
+const chat = document.getElementById("chat");
+const chatBody = document.getElementById("chatBody");
+const chatInput = document.getElementById("chatInput");
+
+aiBtn.onclick = ()=> chat.style.display =
+chat.style.display==="flex" ? "none":"flex";
+
+chatInput.addEventListener("keypress", e=>{
+if(e.key==="Enter"){
+    const text = e.target.value.trim();
+    if(!text) return;
+    chatBody.innerHTML += `<div class="msg user">${text}</div>`;
+    chatBody.innerHTML += `<div class="msg bot">تم تحديث الرادار للبحث عن "${text}"</div>`;
+    searchInput.value=text;
+    searchBooks(text);
+    loadPlatforms(text);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    e.target.value="";
+}
+});
+
+</script>
+
+</body>
+</html>
